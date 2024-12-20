@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shoe_app/components/my_nav_bar.dart';
-import 'package:shoe_app/pages/cart.dart';
+import 'package:shoe_app/pages/cart_page.dart';
 import 'package:shoe_app/pages/shop.dart';
 
 class HomePage extends StatefulWidget {
@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  final List<Widget> _pages = [const Shop(), const Cart()];
+  final List<Widget> _pages = [const Shop(), const CartPage()];
 
   @override
   Widget build(BuildContext context) {
