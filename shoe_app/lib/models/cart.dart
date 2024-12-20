@@ -4,10 +4,10 @@ import 'package:shoe_app/models/shoe.dart';
 class Cart extends ChangeNotifier {
   //list of items
   List<Shoe> itemList = [
-    Shoe("Air jordan", "230", "lib/images/shoe1/jpg", "Cool Shoe"),
-    Shoe("Nike Air Zoom", "120", "lib/images/shoe2/jpg", "Great Shoe"),
-    Shoe("Adidas Ultraboost", "180", "lib/images/shoe3/jpg", "Super Shoe"),
-    Shoe("Puma Boost", "150", "lib/images/shoe4/jpg", "Fantastic Shoe"),
+    Shoe("Air jordan", "230", "lib/images/shoe1.jpg", "Cool Shoe"),
+    Shoe("Nike Air", "120", "lib/images/shoe2.jpg", "Great Shoe"),
+    Shoe("Nike Boost", "180", "lib/images/shoe3.jpg", "Super Shoe"),
+    Shoe("Puma Boost", "150", "lib/images/shoe4.jpg", "Fantastic Shoe"),
   ];
 
   //list of cart

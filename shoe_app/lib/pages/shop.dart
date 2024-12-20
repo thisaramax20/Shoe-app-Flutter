@@ -4,8 +4,25 @@ import 'package:shoe_app/components/shoe_tile.dart';
 import 'package:shoe_app/models/cart.dart';
 import 'package:shoe_app/models/shoe.dart';
 
-class Shop extends StatelessWidget {
+class Shop extends StatefulWidget {
   const Shop({super.key});
+
+  @override
+  State<Shop> createState() => _ShopState();
+}
+
+class _ShopState extends State<Shop> {
+  void addShoeToCart(Shoe shoe) {
+    Provider.of<Cart>(context, listen: false).addToCart(shoe);
+
+    //alert the user
+    showDialog(
+        context: context,
+        builder: (context) => const AlertDialog(
+              title: Text("Successfully Added..."),
+              content: Text("Check your cart..."),
+            ));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,9 +78,11 @@ class Shop extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         itemCount: 4,
                         itemBuilder: (context, index) {
-                          Shoe shoe = Shoe("Air Jordan", "240",
-                              "lib/images/shoe1.jpg", "Cool Shoe");
-                          return ShoeTile(shoe: shoe);
+                          Shoe shoe = value.getShoeList()[index];
+                          return ShoeTile(
+                            shoe: shoe,
+                            onTap: () => addShoeToCart(shoe),
+                          );
                         })),
 
                 const Padding(

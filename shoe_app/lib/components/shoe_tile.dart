@@ -3,7 +3,8 @@ import 'package:shoe_app/models/shoe.dart';
 
 class ShoeTile extends StatelessWidget {
   final Shoe shoe;
-  const ShoeTile({super.key, required this.shoe});
+  void Function()? onTap;
+  ShoeTile({super.key, required this.shoe, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,11 @@ class ShoeTile extends StatelessWidget {
           //shoe picture
           ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: Image.asset(shoe.imagePath)),
+              child: Image.asset(
+                shoe.imagePath,
+                height: 100,
+                width: 200,
+              )),
 
           const SizedBox(
             height: 10,
@@ -52,14 +57,20 @@ class ShoeTile extends StatelessWidget {
                 ),
 
                 //+ button
-                Container(
-                  padding: const EdgeInsets.all(20),
-                  decoration: const BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(12),
-                          bottomRight: Radius.circular(12))),
-                  child: const Icon(Icons.add),
+                GestureDetector(
+                  onTap: onTap,
+                  child: Container(
+                    padding: const EdgeInsets.all(20),
+                    decoration: const BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(12),
+                            bottomRight: Radius.circular(12))),
+                    child: const Icon(
+                      Icons.add,
+                      color: Colors.white,
+                    ),
+                  ),
                 )
               ],
             ),
